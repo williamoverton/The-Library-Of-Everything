@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Response } from "./response";
+import Link from "next/link";
 
 interface StreamingContentProps {
   pathParts: string[];
@@ -55,5 +56,21 @@ export function StreamingContent({ pathParts }: StreamingContentProps) {
     return <div>Waking up scribe...</div>;
   }
 
-  return <Response>{content}</Response>;
+  return (
+    <Response
+      components={{
+        a: ({ children, ...props }) => (
+          <Link
+            href={props.href as string}
+            prefetch={true}
+            className="text-blue-500 hover:text-blue-600"
+          >
+            {children}
+          </Link>
+        ),
+      }}
+    >
+      {content}
+    </Response>
+  );
 }
