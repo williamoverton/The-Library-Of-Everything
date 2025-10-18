@@ -34,6 +34,7 @@ export async function GET(request: Request) {
     - Write in an encyclopedic, neutral tone
     - Include specific facts, dates, and details
     - Present multiple perspectives when relevant
+    - Only include the page content, no other text about the page or your process.
 
     MANDATORY: Every sentence must contain at least 2-3 links. Link concepts like Wikipedia does. Do not write any sentence without links.
 
