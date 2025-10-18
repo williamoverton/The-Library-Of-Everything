@@ -15,7 +15,7 @@ function PageWithParams({
   return (
     <div className="paper-document">
       <div className="main-content">
-        <Suspense fallback={<div>Waking up scribe...</div>}>
+        <Suspense>
           <PageContent pathParts={pathParts} />
         </Suspense>
       </div>

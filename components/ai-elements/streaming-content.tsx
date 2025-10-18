@@ -52,7 +52,7 @@ export function StreamingContent({ pathParts }: StreamingContentProps) {
   }, [pathParts]);
 
   if (isLoading && content === "") {
-    return <div>Loading content...</div>;
+    return <div>Waking up scribe...</div>;
   }
 
   return <Response>{content}</Response>;
