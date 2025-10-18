@@ -9,6 +9,11 @@ export async function GET(request: Request) {
 
   const { textStream } = await streamText({
     model: "openai/gpt-oss-20b",
+    providerOptions: {
+      gateway: {
+        order: ["groq", "baseten"], // Use Groq as its crazy fast.
+      },
+    },
     prompt: dedent`
     You are writing a Wikipedia-style article for the Library of Everything. Your task is to create a comprehensive page about "${pathParts.join(
       "/"
