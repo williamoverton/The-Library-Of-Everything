@@ -54,7 +54,7 @@ export async function GET(request: Request) {
   return new Response(textStream, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600", // Cache for 1 hour
+      "Cache-Control": `public, max-age=9999999999`,
     },
   });
 }

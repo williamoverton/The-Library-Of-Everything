@@ -9,9 +9,6 @@ type ResponseProps = ComponentProps<typeof Streamdown>;
 export const Response = memo(
   ({ className, ...props }: ResponseProps) => (
     <Streamdown
-      // @ts-expect-error - streamdown should support this...
-      defaultOrigin={window.location.origin}
-      allowedLinkPrefixes={["*"]}
       className={cn(
         "size-full [&>*:first-child]:mt-0 [&>*:last-child]:mb-0",
         className

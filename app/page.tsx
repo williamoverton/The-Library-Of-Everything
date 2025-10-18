@@ -1,45 +1,45 @@
 import Link from "next/link";
 
-export default function Home() {
-  const suggestedLinks = [
-    {
-      title: "The History of the Universe",
-      link: "/history/the-history-of-the-universe",
-      category: "History",
-      description: "From the Big Bang to the present day",
-    },
-    {
-      title: "Serverless Computing",
-      link: "/technology/serverless-computing",
-      category: "Technology",
-      description: "The future of cloud computing",
-    },
-    {
-      title: "Online Gaming",
-      link: "/entertainment/online-gaming",
-      category: "Entertainment",
-      description: "Virtual worlds and digital adventures",
-    },
-    {
-      title: "The Great British Bake Off",
-      link: "/entertainment/television/the-great-british-bake-off",
-      category: "Television",
-      description: "Britain's most beloved baking competition",
-    },
-    {
-      title: "Rainbows",
-      link: "/nature/rainbows",
-      category: "Nature",
-      description: "Nature's most beautiful optical phenomenon",
-    },
-    {
-      title: "Dachshunds",
-      link: "/animals/dogs/dachshunds",
-      category: "Animals",
-      description: "The lovable sausage dogs",
-    },
-  ];
+const SUGGESTED_LINKS = [
+  {
+    title: "The History of the Universe",
+    link: "/history/the-history-of-the-universe",
+    category: "History",
+    description: "From the Big Bang to the present day",
+  },
+  {
+    title: "Serverless Computing",
+    link: "/technology/serverless-computing",
+    category: "Technology",
+    description: "The future of cloud computing",
+  },
+  {
+    title: "Online Gaming",
+    link: "/entertainment/online-gaming",
+    category: "Entertainment",
+    description: "Virtual worlds and digital adventures",
+  },
+  {
+    title: "The Great British Bake Off",
+    link: "/entertainment/television/the-great-british-bake-off",
+    category: "Television",
+    description: "Britain's most beloved baking competition",
+  },
+  {
+    title: "Rainbows",
+    link: "/nature/rainbows",
+    category: "Nature",
+    description: "Nature's most beautiful optical phenomenon",
+  },
+  {
+    title: "Dachshunds",
+    link: "/animals/dogs/dachshunds",
+    category: "Animals",
+    description: "The lovable sausage dogs",
+  },
+] as const;
 
+export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 -m-5">
       <main className="container mx-auto px-4 py-8 max-w-4xl">
@@ -59,7 +59,7 @@ export default function Home() {
             Explore Topics
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {suggestedLinks.map((link) => (
+            {SUGGESTED_LINKS.map((link) => (
               <Link
                 key={link.link}
                 href={link.link}

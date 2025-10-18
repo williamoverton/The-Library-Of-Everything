@@ -50,10 +50,14 @@ export function StreamingContent({ pathParts }: StreamingContentProps) {
     }
 
     fetchStream();
-  }, [pathParts]);
+  }, [pathParts.join("/")]);
 
   if (isLoading && content === "") {
-    return <div>Waking up scribe...</div>;
+    return (
+      <div className="text-center text-gray-500 italic">
+        Waking up scribe...
+      </div>
+    );
   }
 
   return (
