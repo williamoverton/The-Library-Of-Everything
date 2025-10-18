@@ -18,7 +18,10 @@ export default function Page({
   after(async () => {
     console.log("Warming up API call for", pathParts.join("/"));
     await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/api/generate?path=${pathParts.join("/")}`
+      `${process.env.NEXT_PUBLIC_URL}/api/generate?path=${pathParts.join("/")}`,
+      {
+        cache: "force-cache", // Make sure we cache the response.
+      }
     );
     console.log("Warmed up API call for", pathParts.join("/"));
   });

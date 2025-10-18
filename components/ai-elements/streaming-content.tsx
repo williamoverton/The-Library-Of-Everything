@@ -19,7 +19,7 @@ export function StreamingContent({ pathParts }: StreamingContentProps) {
         const response = await fetch(
           `/api/generate?path=${encodeURIComponent(path)}`,
           {
-            cache: "no-store", // Don't cache to ensure streaming
+            cache: "force-cache",
           }
         );
 
