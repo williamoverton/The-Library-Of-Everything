@@ -1,7 +1,10 @@
 import { streamText } from "ai";
 import dedent from "dedent";
 
-export async function generatePage(pathParts: string[]) {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const pathParts = searchParams.get("path")?.split("/") || [];
+
   const hostname = process.env.VERCEL_URL;
   let schema = process.env.SCHEME;
 
@@ -45,5 +48,10 @@ export async function generatePage(pathParts: string[]) {
     `,
   });
 
-  return textStream;
+  return new Response(textStream, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=3600", // Cache for 1 hour
+    },
+  });
 }

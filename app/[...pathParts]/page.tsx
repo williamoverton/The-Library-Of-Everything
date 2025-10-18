@@ -1,10 +1,8 @@
-import { generatePage } from "@/lib/pageGenerator";
 import { StreamingContent } from "@/components/ai-elements/streaming-content";
 import { use, Suspense } from "react";
 
-async function PageContent({ pathParts }: { pathParts: string[] }) {
-  const pageContent = await generatePage(pathParts);
-  return <StreamingContent stream={pageContent} />;
+function PageContent({ pathParts }: { pathParts: string[] }) {
+  return <StreamingContent pathParts={pathParts} />;
 }
 
 function PageWithParams({
@@ -17,8 +15,7 @@ function PageWithParams({
   return (
     <div className="paper-document">
       <div className="main-content">
-        <h1>Path: {pathParts.join("/")}</h1>
-        <Suspense fallback={<div>Loading content...</div>}>
+        <Suspense fallback={<div>Waking up scribe...</div>}>
           <PageContent pathParts={pathParts} />
         </Suspense>
       </div>
@@ -32,8 +29,11 @@ export default function Page({
   params: Promise<{ pathParts: string[] }>;
 }) {
   return (
-    <Suspense fallback={<div>Loading page...</div>}>
+    <Suspense>
       <PageWithParams params={params} />
     </Suspense>
   );
 }
+
+// Cache for 1 hour
+export const revalidate = 3600;

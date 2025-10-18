@@ -4,20 +4,56 @@ import { useEffect, useState } from "react";
 import { Response } from "./response";
 
 interface StreamingContentProps {
-  stream: AsyncIterable<string>;
+  pathParts: string[];
 }
 
-export function StreamingContent({ stream }: StreamingContentProps) {
+export function StreamingContent({ pathParts }: StreamingContentProps) {
   const [content, setContent] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function processStream() {
-      for await (const chunk of stream) {
-        setContent((prev) => prev + chunk);
+    async function fetchStream() {
+      try {
+        const path = pathParts.join("/");
+        const response = await fetch(
+          `/api/generate?path=${encodeURIComponent(path)}`,
+          {
+            cache: "no-store", // Don't cache to ensure streaming
+          }
+        );
+
+        if (!response.body) {
+          throw new Error("No response body");
+        }
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value, { stream: true });
+            setContent((prev) => prev + chunk);
+          }
+        } finally {
+          reader.releaseLock();
+        }
+      } catch (error) {
+        console.error("Error fetching stream:", error);
+        setContent("Error loading content. Please try again.");
+      } finally {
+        setIsLoading(false);
       }
     }
-    processStream();
-  }, [stream]);
+
+    fetchStream();
+  }, [pathParts]);
+
+  if (isLoading && content === "") {
+    return <div>Loading content...</div>;
+  }
 
   return <Response>{content}</Response>;
 }
