@@ -41,7 +41,7 @@ export async function GET(request: Request) {
       "/"
     )}" with extensive internal linking throughout.
 
-    Always include a title at the beginning of the page.
+    Always include a title at the beginning of the page. The title should be a single sentence or few words that captures the main idea of the page.
     `,
   });
 
