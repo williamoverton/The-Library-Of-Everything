@@ -16,9 +16,11 @@ export default function Page({
   // Warm up the API call after the response is sent
   // This is a gambit to try and generate pages before they are needed.
   after(async () => {
+    console.log("Warming up API call for", pathParts.join("/"));
     await fetch(
       `${process.env.NEXT_PUBLIC_URL}/api/generate?path=${pathParts.join("/")}`
     );
+    console.log("Warmed up API call for", pathParts.join("/"));
   });
 
   return (
