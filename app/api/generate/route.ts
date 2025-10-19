@@ -27,7 +27,7 @@ export async function GET(request: Request) {
     LINKING RULES:
     1. Link EVERY SINGLE noun, concept, person, place, or term that could have its own page
     2. Use descriptive link text that explains what the linked page contains
-    3. Format: [descriptive text](${origin}/category/subcategory/topic)
+    3. Format: [descriptive text](${origin}/category/subcategory/topic) (dont use the full url in the descriptive text part of the link)
     4. Create logical hierarchical paths
     5. Link multiple concepts per sentence
     6. Link common terms like [science](${origin}/academic/sciences), [research](${origin}/academic/research), [studies](${origin}/academic/studies)
@@ -52,7 +52,7 @@ export async function GET(request: Request) {
     Final reminder: Your content is useless if it does not link to everything mentioned inline (not just with links at the end of the page).
     Never write more than 20 words without linking to something.
 
-    WARNING: Your last response was rejected for not having enough links. Please fix this.
+    WARNING: Your last response was rejected for not having enough links. Please regenerate the response with more inline links.
     `,
   });
 
