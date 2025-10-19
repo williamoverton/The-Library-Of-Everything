@@ -32,6 +32,7 @@ export async function GET(request: Request) {
     4. Create logical hierarchical paths
     5. Link multiple concepts per sentence
     6. Link common terms like [science](${origin}/academic/sciences), [research](${origin}/academic/research), [studies](${origin}/academic/studies)
+    7. Dont just bold the text to make it look like a link, use markdown links.
 
     CONTENT STRUCTURE:
     - Start with a clear introduction that defines the topic
