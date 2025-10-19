@@ -15,7 +15,7 @@ export async function GET(request: Request) {
       },
     },
     prompt: dedent`
-    You are writing a Wikipedia-style article for the Library of Everything. Your task is to create a comprehensive page about "${pathParts.join(
+    You are writing a Wikipedia-style article full of linksfor the Library of Everything. Your task is to create a comprehensive page about "${pathParts.join(
       "/"
     )}" that is heavily interlinked with other pages in the library where each element of the page should be linked to a different page in the library.
 

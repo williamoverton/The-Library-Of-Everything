@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AISearch } from "@/components/ai-search";
 
 export function Navbar() {
   return (
@@ -15,57 +16,19 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Navigation Links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/history/the-history-of-the-universe"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                History
-              </Link>
-              <Link
-                href="/technology/serverless-computing"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Technology
-              </Link>
-              <Link
-                href="/nature/rainbows"
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Nature
-              </Link>
-            </div>
+          {/* AI Search */}
+          <div className="flex-1 max-w-2xl mx-8">
+            <AISearch />
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              type="button"
-              className="text-gray-600 hover:text-blue-600 focus:outline-none focus:text-blue-600"
-              aria-label="Open menu"
+          {/* Home Link */}
+          <div className="flex-shrink-0">
+            <Link
+              href="/"
+              className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+              Home
+            </Link>
           </div>
         </div>
       </div>
