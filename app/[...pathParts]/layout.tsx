@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "The Library Of Everything",
@@ -14,5 +15,10 @@ export const metadata: Metadata = {
   },
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <Navbar />
+      {children}
+    </>
+  );
 }

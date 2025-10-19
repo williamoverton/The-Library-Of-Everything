@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Navbar } from "@/components/navbar";
 
 const SUGGESTED_LINKS = [
   {
@@ -42,7 +43,8 @@ const SUGGESTED_LINKS = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 -m-5">
-      <main className="container mx-auto px-4 py-8 max-w-4xl">
+      <Navbar />
+      <main className="container mx-auto px-4 py-8 max-w-4xl mt-8">
         {/* Hero Section */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-3">

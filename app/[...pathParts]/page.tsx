@@ -13,10 +13,12 @@ export default function Page({
   const { pathParts } = use(params);
 
   return (
-    <div className="bg-white shadow-lg border border-gray-200 mx-auto max-w-[8.5in] min-h-[11in] p-16 relative">
-      <PaperContent>
-        <StreamingContent pathParts={pathParts} />
-      </PaperContent>
+    <div className="mt-8">
+      <div className="bg-white shadow-lg border border-gray-200 mx-auto max-w-[8.5in] min-h-[11in] p-8 relative">
+        <PaperContent>
+          <StreamingContent pathParts={pathParts} />
+        </PaperContent>
+      </div>
     </div>
   );
 }
