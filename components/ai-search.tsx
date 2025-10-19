@@ -97,7 +97,7 @@ export function AISearch() {
             // Small delay to allow clicking on suggestions
             setTimeout(() => setOpen(false), 150);
           }}
-          className="pl-10 pr-2 py-1 w-96 text-sm h-8 bg-white border-2 border-gray-400 border-t-gray-100 border-l-gray-100 focus:border-blue-600 focus:outline-none shadow-[inset_1px_1px_0px_0px_#808080,inset_-1px_-1px_0px_0px_#ffffff] font-sans"
+          className="pl-10 pr-2 py-1 w-96 text-sm h-8 bg-white border-2 border-gray-400 border-t-gray-100 border-l-gray-100 focus:border-blue-600 focus:outline-none shadow-[inset_1px_1px_0px_0px_#808080,inset_-1px_-1px_0px_0px_#ffffff] font-serif"
           aria-label="Search for topics"
           aria-expanded={open}
           aria-haspopup="listbox"
@@ -132,7 +132,7 @@ export function AISearch() {
                       >
                         <Link
                           href={suggestion.path}
-                          className="block w-full p-2 hover:bg-blue-600 hover:text-white transition-colors border-b border-gray-400 font-sans"
+                          className="block w-full p-2 hover:bg-blue-600 hover:text-white transition-colors border-b border-gray-400 font-serif"
                         >
                           <div className="flex flex-col space-y-1">
                             <div className="flex items-start justify-between gap-2">
@@ -161,7 +161,7 @@ export function AISearch() {
         <Button
           onClick={handleSearch}
           disabled={isLoading}
-          className="px-3 py-1 h-8 bg-gray-300 border-2 border-gray-400 border-t-gray-100 border-l-gray-100 text-black hover:bg-gray-200 active:bg-gray-400 active:border-gray-600 active:border-t-gray-400 active:border-l-gray-400 font-medium transition-none shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080] font-sans"
+          className="px-3 py-1 h-8 bg-gray-300 border-2 border-gray-400 border-t-gray-100 border-l-gray-100 text-black hover:bg-gray-200 active:bg-gray-400 active:border-gray-600 active:border-t-gray-400 active:border-l-gray-400 font-medium transition-none shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080] font-serif"
           size="sm"
         >
           {isLoading ? (

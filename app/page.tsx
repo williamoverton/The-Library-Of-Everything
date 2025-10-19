@@ -48,12 +48,12 @@ export default function Home() {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8 max-w-6xl mt-4">
         {/* Welcome Panel */}
-        <div className="mb-8 p-6 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080] font-sans">
+        <div className="mb-8 p-6 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080] font-serif">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-black mb-4 font-sans">
+            <h1 className="text-3xl font-bold text-black mb-4 font-serif">
               The Library of Everything
             </h1>
-            <p className="text-lg text-gray-700 mb-6 font-sans">
+            <p className="text-lg text-gray-700 mb-6 font-serif">
               Your AI-powered encyclopedia. Search for any topic and discover
               comprehensive, AI-generated articles on everything from science to
               history, technology to nature.
@@ -64,7 +64,7 @@ export default function Home() {
         {/* Featured Articles */}
         <div className="mb-8 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
           {/* Title Bar */}
-          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-sans text-xs font-bold">
+          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-serif text-xs font-bold">
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 bg-blue-600 border border-blue-800"></div>
               <span>Featured Articles</span>
@@ -78,7 +78,7 @@ export default function Home() {
                 <Link
                   key={link.link}
                   href={link.link}
-                  className="block p-4 hover:bg-blue-100 hover:border-blue-500 bg-white border border-gray-500 font-sans"
+                  className="block p-4 hover:bg-blue-100 hover:border-blue-500 bg-white border border-gray-500 font-serif"
                 >
                   <div className="flex items-start justify-between mb-2">
                     <span className="text-xs font-bold px-2 py-1 bg-blue-900 text-white">
@@ -99,7 +99,7 @@ export default function Home() {
         {/* Quick Start Panel */}
         <div className="mb-8 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
           {/* Title Bar */}
-          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-sans text-xs font-bold">
+          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-serif text-xs font-bold">
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 bg-green-600 border border-green-800"></div>
               <span>Quick Start Guide</span>
@@ -108,11 +108,11 @@ export default function Home() {
 
           {/* Content */}
           <div className="p-6">
-            <p className="text-sm text-gray-700 mb-4 font-sans">
+            <p className="text-sm text-gray-700 mb-4 font-serif">
               Try navigating to any URL path to generate AI content:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div className="p-3 bg-gray-300 border border-gray-500 font-sans">
+              <div className="p-3 bg-gray-300 border border-gray-500 font-serif">
                 <div className="text-xs font-bold text-black mb-2">
                   Space & Astronomy
                 </div>
@@ -126,7 +126,7 @@ export default function Home() {
                   /space/space-exploration
                 </div>
               </div>
-              <div className="p-3 bg-gray-300 border border-gray-500 font-sans">
+              <div className="p-3 bg-gray-300 border border-gray-500 font-serif">
                 <div className="text-xs font-bold text-black mb-2">
                   Food & Cooking
                 </div>
@@ -140,7 +140,7 @@ export default function Home() {
                   /cooking/molecular-gastronomy
                 </div>
               </div>
-              <div className="p-3 bg-gray-300 border border-gray-500 font-sans">
+              <div className="p-3 bg-gray-300 border border-gray-500 font-serif">
                 <div className="text-xs font-bold text-black mb-2">
                   Philosophy & Ideas
                 </div>
@@ -161,7 +161,7 @@ export default function Home() {
         {/* About Panel */}
         <div className="bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
           {/* Title Bar */}
-          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-sans text-xs font-bold">
+          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-serif text-xs font-bold">
             <div className="flex items-center space-x-2">
               <div className="w-4 h-4 bg-purple-600 border border-purple-800"></div>
               <span>About The Library</span>
@@ -172,21 +172,21 @@ export default function Home() {
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-sm font-bold text-black mb-3 font-sans">
+                <h3 className="text-sm font-bold text-black mb-3 font-serif">
                   How It Works
                 </h3>
-                <p className="text-xs text-gray-700 mb-3 font-sans">
+                <p className="text-xs text-gray-700 mb-3 font-serif">
                   Simply navigate to any URL path and our AI will instantly
                   generate comprehensive, Wikipedia-style articles on any topic
                   you choose.
                 </p>
-                <p className="text-xs text-gray-700 font-sans">
+                <p className="text-xs text-gray-700 font-serif">
                   No registration required. No limits. Just pure knowledge at
                   your fingertips.
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-bold text-black mb-3 font-sans">
+                <h3 className="text-sm font-bold text-black mb-3 font-serif">
                   Topics Covered
                 </h3>
                 <div className="flex flex-wrap gap-1">
@@ -202,7 +202,7 @@ export default function Home() {
                   ].map((topic) => (
                     <Link
                       key={topic}
-                      className="text-xs px-2 py-1 bg-gray-300 border border-gray-500 font-sans"
+                      className="text-xs px-2 py-1 bg-gray-300 border border-gray-500 font-serif"
                       href={`/general/topics/${topic
                         .toLowerCase()
                         .replace(/ /g, "-")}`}

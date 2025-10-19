@@ -13,7 +13,7 @@ export function Navbar() {
             <BookOpen className="w-6 h-6 text-black" />
             <Link
               href="/"
-              className="text-lg font-bold text-black hover:text-blue-800 transition-colors font-sans"
+              className="text-lg font-bold text-black hover:text-blue-800 transition-colors font-serif"
             >
               The Library Of Everything
             </Link>
