@@ -15,9 +15,10 @@ export async function GET(request: Request) {
       },
     },
     prompt: dedent`
-    You are writing a Wikipedia-style article full of linksfor the Library of Everything. Your task is to create a comprehensive page about "${pathParts.join(
+    You are writing a Wikipedia-style article full of links for the Library of Everything. Your task is to create a comprehensive page about "${pathParts.join(
       "/"
-    )}" that is heavily interlinked with other pages in the library where each element of the page should be linked to a different page in the library.
+    )}" that is heavily interlinked with other pages (via markdown links) in the library where each element of the page should be linked to a different page in the library.
+    The library already contains every page you could possibly need to link to, so create links to as many pages as possible.
 
     WRITING FORMAT: Write exactly like Wikipedia with **extensive internal linking**. Every concept, person, place, theory, or term that could have its own page MUST be linked.
 
