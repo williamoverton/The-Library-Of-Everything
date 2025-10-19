@@ -1,7 +1,6 @@
 import { StreamingContent } from "@/components/ai-elements/streaming-content";
 import { PaperContent } from "@/components/paper-content";
 import { use } from "react";
-import { after } from "next/server";
 
 // Force dynamic rendering.
 export const dynamic = "force-dynamic";
