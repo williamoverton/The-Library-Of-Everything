@@ -2,9 +2,6 @@ import { StreamingContent } from "@/components/ai-elements/streaming-content";
 import { PaperContent } from "@/components/paper-content";
 import { use } from "react";
 
-// Force dynamic rendering.
-export const dynamic = "force-dynamic";
-
 export default function Page({
   params,
 }: {
