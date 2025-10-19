@@ -1,34 +1,27 @@
 import Link from "next/link";
+import { BookOpen } from "lucide-react";
 import { AISearch } from "@/components/ai-search";
 
 export function Navbar() {
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo/Brand */}
-          <div className="flex-shrink-0">
+    <nav className="bg-gray-300 border-2 border-gray-400 border-t-gray-100 border-l-gray-100 sticky top-0 z-50 shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
+      <div className="max-w-7xl mx-auto px-2">
+        <div className="flex items-center justify-center h-12">
+          {/* Logo with 90s Icon - Positioned absolutely to the left */}
+          <div className="absolute left-4 flex items-center space-x-2">
+            {/* Book Icon */}
+            <BookOpen className="w-6 h-6 text-black" />
             <Link
               href="/"
-              className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+              className="text-lg font-bold text-black hover:text-blue-800 transition-colors font-sans"
             >
               The Library Of Everything
             </Link>
           </div>
 
-          {/* AI Search */}
-          <div className="flex-1 max-w-2xl mx-8">
+          {/* Search Bar - Centered */}
+          <div className="flex justify-center">
             <AISearch />
-          </div>
-
-          {/* Home Link */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            >
-              Home
-            </Link>
           </div>
         </div>
       </div>

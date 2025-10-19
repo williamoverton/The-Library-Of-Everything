@@ -42,82 +42,180 @@ const SUGGESTED_LINKS = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 -m-5">
+    <div className="min-h-screen bg-gray-300">
       <Navbar />
-      <main className="container mx-auto px-4 py-8 max-w-4xl mt-8">
-        {/* Hero Section */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">
-            The Library Of Everything
-          </h1>
-          <p className="text-gray-600 mb-4">
-            AI-generated content on any topic. Pages created on-demand.
-          </p>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8 max-w-6xl mt-4">
+        {/* Welcome Panel */}
+        <div className="mb-8 p-6 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080] font-sans">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold text-black mb-4 font-sans">
+              The Library of Everything
+            </h1>
+            <p className="text-lg text-gray-700 mb-6 font-sans">
+              Your AI-powered encyclopedia. Search for any topic and discover
+              comprehensive, AI-generated articles on everything from science to
+              history, technology to nature.
+            </p>
+          </div>
         </div>
 
-        {/* Featured Links Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">
-            Explore Topics
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {SUGGESTED_LINKS.map((link) => (
-              <Link
-                key={link.link}
-                href={link.link}
-                className="group block bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 p-4"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">
-                        {link.category}
-                      </span>
-                    </div>
-                    <h3 className="text-sm font-medium text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
-                      {link.title}
-                    </h3>
-                    <p className="text-xs text-gray-500">{link.description}</p>
+        {/* Featured Articles */}
+        <div className="mb-8 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
+          {/* Title Bar */}
+          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-sans text-xs font-bold">
+            <div className="flex items-center space-x-2">
+              <div className="w-4 h-4 bg-blue-600 border border-blue-800"></div>
+              <span>Featured Articles</span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {SUGGESTED_LINKS.map((link) => (
+                <Link
+                  key={link.link}
+                  href={link.link}
+                  className="block p-4 hover:bg-blue-100 hover:border-blue-500 bg-white border border-gray-500 font-sans"
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <span className="text-xs font-bold px-2 py-1 bg-blue-900 text-white">
+                      {link.category}
+                    </span>
+                    <div className="text-gray-400 text-xs">→</div>
                   </div>
-                  <svg
-                    className="w-3 h-3 text-gray-400 group-hover:text-blue-500 transition-colors flex-shrink-0 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </div>
-              </Link>
-            ))}
+                  <h3 className="text-sm font-bold text-black mb-2">
+                    {link.title}
+                  </h3>
+                  <p className="text-xs text-gray-600">{link.description}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
-            Can&apos;t find what you&apos;re looking for?
-          </h3>
-          <p className="text-sm text-gray-600 mb-4">
-            Navigate to any URL path and our AI will generate content instantly.
-          </p>
-          <div className="bg-gray-50 rounded p-3">
-            <div className="text-xs font-medium text-gray-700 mb-1">
-              Try these examples:
+        {/* Quick Start Panel */}
+        <div className="mb-8 bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
+          {/* Title Bar */}
+          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-sans text-xs font-bold">
+            <div className="flex items-center space-x-2">
+              <div className="w-4 h-4 bg-green-600 border border-green-800"></div>
+              <span>Quick Start Guide</span>
             </div>
-            <div className="text-xs text-gray-600 space-y-1">
-              <div>/space/black-holes</div>
-              <div>/cooking/perfect-pasta</div>
-              <div>/philosophy/meaning-of-life</div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            <p className="text-sm text-gray-700 mb-4 font-sans">
+              Try navigating to any URL path to generate AI content:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="p-3 bg-gray-300 border border-gray-500 font-sans">
+                <div className="text-xs font-bold text-black mb-2">
+                  Space & Astronomy
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /space/black-holes
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /space/solar-system
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /space/space-exploration
+                </div>
+              </div>
+              <div className="p-3 bg-gray-300 border border-gray-500 font-sans">
+                <div className="text-xs font-bold text-black mb-2">
+                  Food & Cooking
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /cooking/perfect-pasta
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /cooking/french-cuisine
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /cooking/molecular-gastronomy
+                </div>
+              </div>
+              <div className="p-3 bg-gray-300 border border-gray-500 font-sans">
+                <div className="text-xs font-bold text-black mb-2">
+                  Philosophy & Ideas
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /philosophy/meaning-of-life
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /philosophy/ethics
+                </div>
+                <div className="text-xs font-mono text-gray-700">
+                  /philosophy/logic
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </main>
+
+        {/* About Panel */}
+        <div className="bg-white border-2 border-gray-500 border-t-white border-l-white shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
+          {/* Title Bar */}
+          <div className="flex items-center justify-between px-3 py-2 bg-blue-900 text-white font-sans text-xs font-bold">
+            <div className="flex items-center space-x-2">
+              <div className="w-4 h-4 bg-purple-600 border border-purple-800"></div>
+              <span>About The Library</span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-sm font-bold text-black mb-3 font-sans">
+                  How It Works
+                </h3>
+                <p className="text-xs text-gray-700 mb-3 font-sans">
+                  Simply navigate to any URL path and our AI will instantly
+                  generate comprehensive, Wikipedia-style articles on any topic
+                  you choose.
+                </p>
+                <p className="text-xs text-gray-700 font-sans">
+                  No registration required. No limits. Just pure knowledge at
+                  your fingertips.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-black mb-3 font-sans">
+                  Topics Covered
+                </h3>
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    "Science",
+                    "History",
+                    "Technology",
+                    "Nature",
+                    "Art",
+                    "Philosophy",
+                    "Cooking",
+                    "Sports",
+                  ].map((topic) => (
+                    <Link
+                      key={topic}
+                      className="text-xs px-2 py-1 bg-gray-300 border border-gray-500 font-sans"
+                      href={`/general/topics/${topic
+                        .toLowerCase()
+                        .replace(/ /g, "-")}`}
+                    >
+                      {topic}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

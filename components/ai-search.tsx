@@ -51,7 +51,6 @@ export function AISearch() {
       return;
     }
 
-    console.log("Searching for:", query);
     setIsLoading(true);
     setSuggestions([]);
     setOpen(true);
@@ -61,7 +60,6 @@ export function AISearch() {
 
       for await (const partialObject of readStreamableValue(object)) {
         if (partialObject && partialObject.suggestions) {
-          console.log("Partial suggestions:", partialObject.suggestions);
           setSuggestions(partialObject.suggestions);
         }
       }
@@ -76,11 +74,13 @@ export function AISearch() {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       handleSearch();
+    } else if (e.key === "Escape") {
+      setOpen(false);
     }
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 items-center">
       <div className="relative" ref={containerRef}>
         <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
         <Input
@@ -93,10 +93,17 @@ export function AISearch() {
               setOpen(true);
             }
           }}
-          className="pl-12 pr-4 py-3 w-96 text-base"
+          onBlur={() => {
+            // Small delay to allow clicking on suggestions
+            setTimeout(() => setOpen(false), 150);
+          }}
+          className="pl-10 pr-2 py-1 w-96 text-sm h-8 bg-white border-2 border-gray-400 border-t-gray-100 border-l-gray-100 focus:border-blue-600 focus:outline-none shadow-[inset_1px_1px_0px_0px_#808080,inset_-1px_-1px_0px_0px_#ffffff] font-sans"
+          aria-label="Search for topics"
+          aria-expanded={open}
+          aria-haspopup="listbox"
         />
         {open && (suggestions.length > 0 || isLoading) && (
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-3 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 w-[32rem] max-h-[24rem] overflow-y-auto">
+          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-gray-300 border-2 border-gray-400 border-t-gray-100 border-l-gray-100 z-50 w-[32rem] max-h-[24rem] overflow-y-auto shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080]">
             <Command>
               <CommandList>
                 {isLoading && (
@@ -125,18 +132,18 @@ export function AISearch() {
                       >
                         <Link
                           href={suggestion.path}
-                          className="block w-full p-3 hover:bg-gray-50 transition-colors"
+                          className="block w-full p-2 hover:bg-blue-600 hover:text-white transition-colors border-b border-gray-400 font-sans"
                         >
-                          <div className="flex flex-col space-y-1.5">
-                            <div className="flex items-start justify-between gap-3">
-                              <span className="font-medium text-sm text-gray-900 leading-tight">
+                          <div className="flex flex-col space-y-1">
+                            <div className="flex items-start justify-between gap-2">
+                              <span className="font-bold text-sm text-black leading-tight">
                                 {suggestion.title}
                               </span>
-                              <span className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded-full flex-shrink-0 font-medium">
+                              <span className="text-xs text-blue-800 bg-blue-200 px-1 py-0.5 border border-blue-400 flex-shrink-0 font-bold">
                                 {suggestion.category}
                               </span>
                             </div>
-                            <p className="text-xs text-gray-600 leading-relaxed">
+                            <p className="text-xs text-gray-700 leading-tight">
                               {suggestion.description}
                             </p>
                           </div>
@@ -150,18 +157,20 @@ export function AISearch() {
           </div>
         )}
       </div>
-      <Button
-        onClick={handleSearch}
-        disabled={isLoading || !query.trim()}
-        className="px-6 py-3 h-auto"
-        size="lg"
-      >
-        {isLoading ? (
-          <Loader2 className="h-5 w-5 animate-spin" />
-        ) : (
-          <Search className="h-5 w-5" />
-        )}
-      </Button>
+      {query.trim() && (
+        <Button
+          onClick={handleSearch}
+          disabled={isLoading}
+          className="px-3 py-1 h-8 bg-gray-300 border-2 border-gray-400 border-t-gray-100 border-l-gray-100 text-black hover:bg-gray-200 active:bg-gray-400 active:border-gray-600 active:border-t-gray-400 active:border-l-gray-400 font-medium transition-none shadow-[inset_1px_1px_0px_0px_#ffffff,inset_-1px_-1px_0px_0px_#808080] font-sans"
+          size="sm"
+        >
+          {isLoading ? (
+            <Loader2 className="h-3 w-3 animate-spin" />
+          ) : (
+            <Search className="h-3 w-3" />
+          )}
+        </Button>
+      )}
     </div>
   );
 }
