@@ -4,7 +4,7 @@ initBotId({
   protect: [
     {
       path: "/api/generate",
-      method: "POST",
+      method: "GET",
     },
   ],
 });
