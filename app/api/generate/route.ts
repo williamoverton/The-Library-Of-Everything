@@ -1,7 +1,15 @@
 import { streamText } from "ai";
 import dedent from "dedent";
+import { checkBotId } from "botid/server";
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
+  const verification = await checkBotId();
+
+  if (verification.isBot) {
+    return NextResponse.json({ error: "Access denied" }, { status: 403 });
+  }
+
   const { searchParams } = new URL(request.url);
   const pathParts = searchParams.get("path")?.split("/") || [];
 
